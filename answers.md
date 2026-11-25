@@ -6,12 +6,14 @@
 
 ## การทดลอง hot reload (r) กับ hot restart (R)
 
-ขั้นตอน: รันแอปด้วย `flutter run` แล้วกดปุ่ม Like 3 ครั้ง (Likes: 3) จากนั้นแก้ข้อความใน `build()` แล้วบันทึกไฟล์
+สภาพแวดล้อม: Flutter 3.50.0, emulator Pixel (Android 16, API 36)
 
-| การทดลอง | ค่า Likes หลังกด | UI ที่แก้ใน build() | ผลที่สังเกต |
-|---|---|---|---|
-| กด `r` (hot reload) | ยังเป็น 3 | อัปเดตทันที | state เดิมยังอยู่ |
-| กด `R` (hot restart) | กลับเป็น 0 | อัปเดต | แอปเริ่มใหม่ state หายหมด |
+ขั้นตอน: รันแอปด้วย `flutter run` แล้วกดปุ่ม Like 3 ครั้ง (Likes: 3) จากนั้นกด `r` แล้วกด `R` ในเทอร์มินัล
+
+| การทดลอง | ค่า Likes ก่อนกด | ค่า Likes หลังกด | ข้อความจาก flutter run | ผลที่สังเกต |
+|---|---|---|---|---|
+| กด `r` (hot reload) | 3 | **3** | `Reloaded 0 libraries in 316ms` | state เดิมยังอยู่ หน้าจอไม่เริ่มใหม่ |
+| กด `R` (hot restart) | 3 | **0** | `Restarted application in 1,942ms` | แอปเริ่มใหม่ state หายหมด |
 
 ## สรุป
 
